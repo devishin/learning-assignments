@@ -1,4 +1,4 @@
-# Учебные проекты (параллельно)
+# Учебные проекты
 
 - `02-reminder-app` — напоминалка (Tkinter + SQLite + уведомления)
 - `03-password-manager` — CLI менеджер паролей (SQLite + Fernet)
