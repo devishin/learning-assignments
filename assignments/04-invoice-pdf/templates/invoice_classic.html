@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    @font-face {
+      font-family: "DejaVu Sans";
+      src: url("../fonts/DejaVuSans.ttf") format("truetype");
+    }
+    body {
+      font-family: "DejaVu Sans", sans-serif;
+      color: #1c1638;
+      margin: 32px;
+    }
+    h1 { color: #009ac8; margin-bottom: 8px; }
+    .meta { margin-bottom: 20px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th { background: #f0f4ff; }
+    .total {
+      margin-top: 16px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Счёт {{ invoice_id }}</h1>
+  <div class="meta">
+    <div><strong>Клиент:</strong> {{ customer_name }}</div>
+    <div><strong>Дата:</strong> {{ date }}</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Описание</th>
+        <th>Кол-во</th>
+        <th>Цена</th>
+        <th>Сумма</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in items %}
+      <tr>
+        <td>{{ item.description }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ "%.2f"|format(item.price) }}</td>
+        <td>{{ "%.2f"|format(item.quantity * item.price) }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="total">Итого: {{ "%.2f"|format(total) }} ₽</div>
+</body>
+</html>

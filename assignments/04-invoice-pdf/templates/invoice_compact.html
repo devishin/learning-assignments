@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    @font-face {
+      font-family: "DejaVu Sans";
+      src: url("../fonts/DejaVuSans.ttf") format("truetype");
+    }
+    body {
+      font-family: "DejaVu Sans", sans-serif;
+      margin: 24px;
+      background: #f0f4ff;
+      color: #303030;
+    }
+    .card {
+      background: #ffffff;
+      border-left: 6px solid #009ac8;
+      padding: 24px;
+    }
+    h1 { margin-top: 0; color: #1c1638; }
+    .row { margin: 6px 0; }
+    .total {
+      margin-top: 18px;
+      font-size: 20px;
+      color: #009ac8;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Чек {{ invoice_id }}</h1>
+    <div class="row"><strong>Покупатель:</strong> {{ customer_name }}</div>
+    <div class="row"><strong>Дата:</strong> {{ date }}</div>
+    <hr />
+    {% for item in items %}
+    <div class="row">
+      {{ item.description }} — {{ item.quantity }} x {{ "%.2f"|format(item.price) }} ₽
+    </div>
+    {% endfor %}
+    <div class="total">К оплате: {{ "%.2f"|format(total) }} ₽</div>
+  </div>
+</body>
+</html>

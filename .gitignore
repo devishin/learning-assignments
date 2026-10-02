@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+assignments/03-password-manager/.key
+assignments/03-password-manager/passwords.db
+assignments/04-invoice-pdf/output/*.pdf
