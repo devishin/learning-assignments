@@ -5,3 +5,5 @@ __pycache__/
 assignments/03-password-manager/.key
 assignments/03-password-manager/passwords.db
 assignments/04-invoice-pdf/output/*.pdf
+assignments/06-telegram-tasks-bot/tasks.db
+assignments/06-telegram-tasks-bot/exports/
