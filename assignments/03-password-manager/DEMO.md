@@ -9,7 +9,7 @@ StudyDemo123!
 ## Скриншоты (3 этапа)
 
 ```powershell
-cd D:\learning-assignments\assignments\03-password-manager
+cd assignments/03-password-manager
 pip install mss
 python capture_real_screenshots.py
 ```

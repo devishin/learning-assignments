@@ -5,7 +5,7 @@
 ## Установка
 
 ```powershell
-cd D:\learning-assignments\assignments\03-password-manager
+cd assignments/03-password-manager
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt

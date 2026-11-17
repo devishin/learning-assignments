@@ -69,12 +69,14 @@ File → Open SQL Script → schema.sql → Execute
 seed.sql → Execute
 ```
 
-Либо из консоли:
+После клонирования репозитория перейдите в папку задания и соберите базу:
 
 ```powershell
-cd D:\learning-assignments\assignments\07-sports-club
+cd assignments/07-sports-club
 python build_db.py
 ```
+
+(из корня клона `learning-assignments`, или укажите полный путь к этой папке у себя на диске.)
 
 ### 4. Проверочные запросы
 
@@ -93,6 +95,6 @@ pip install pillow
 python render_erd.py
 ```
 
-## Локальный путь
+## Где лежит проект в репозитории
 
-`D:\learning-assignments\assignments\07-sports-club\`
+`assignments/07-sports-club/` — относительно корня [learning-assignments](https://github.com/devishin/learning-assignments).

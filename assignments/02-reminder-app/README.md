@@ -5,7 +5,7 @@
 ## Установка
 
 ```powershell
-cd D:\learning-assignments\assignments\02-reminder-app
+cd assignments/02-reminder-app
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt

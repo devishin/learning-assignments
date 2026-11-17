@@ -19,7 +19,7 @@
 ## Установка
 
 ```powershell
-cd D:\learning-assignments\assignments\04-invoice-pdf
+cd assignments/04-invoice-pdf
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt

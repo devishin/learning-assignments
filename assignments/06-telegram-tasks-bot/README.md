@@ -20,7 +20,7 @@ TELEGRAM_PROXY=socks5h://127.0.0.1:10808
 ### 2. Установка и запуск
 
 ```powershell
-cd D:\learning-assignments\assignments\06-telegram-tasks-bot
+cd assignments/06-telegram-tasks-bot
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
