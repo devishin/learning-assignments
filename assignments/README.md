@@ -4,6 +4,7 @@
 - `03-password-manager` — CLI менеджер паролей (SQLite + Fernet)
 - `04-invoice-pdf` — генерация PDF-счетов из CSV/JSON и HTML (WeasyPrint)
 - `06-telegram-tasks-bot` — Telegram-бот задач (aiogram + SQLite)
+- `07-sports-club` — SQLite: спортивный клуб (схема, seed, checks, ER)
 
 ## Быстрый запуск демо
 
