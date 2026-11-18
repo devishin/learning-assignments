@@ -1,0 +1,10 @@
+category | COUNT(*) | ROUND(AVG(price), 2)
+---------+----------+---------------------
+automotive | 15 | 254.57
+beauty | 15 | 48.48
+books | 15 | 43.8
+electronics | 17 | 1216.16
+grocery | 15 | 17.85
+home | 16 | 229.74
+sports | 15 | 428.24
+toys | 15 | 70.61

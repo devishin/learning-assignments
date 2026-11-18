@@ -1,0 +1,12 @@
+id | sku | name | line_total
+---+-----+------+-----------
+1 | GRO-0014 | Smart Tea Grocery 74 | 18.78
+2 | ELE-0009 | Max Novel Electronics 9 | 2394.18
+3 | AUT-0010 | Urban Hub Automotive 115 | 226.77
+4 | BOO-0002 | Premium Serum Books 47 | 46.68
+5 | BOO-0002 | Premium Serum Books 47 | 23.34
+6 | BEA-0004 | Max Puzzle Beauty 79 | 218.25
+7 | ELE-0002 | Classic Router Electronics 2 | 12380.05
+8 | BOO-0011 | Compact Hub Books 56 | 185.6
+9 | SPO-0001 | Lite Sensor Sports 31 | 4281.8
+10 | HOM-0003 | Basic Puzzle Home 18 | 477.58

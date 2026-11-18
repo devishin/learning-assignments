@@ -1,0 +1,12 @@
+sku | name | price
+----+------+------
+ELE-0002 | Classic Router Electronics 2 | 2476.01
+ELE-0009 | Max Novel Electronics 9 | 2394.18
+ELE-0014 | Smart Tea Electronics 14 | 2322.1
+ELE-0013 | Eco Tea Electronics 13 | 2123.01
+ELE-0007 | Premium Ball Electronics 7 | 2058.59
+ELE-0006 | Compact Ball Electronics 6 | 1949.67
+ELE-0010 | Pro Novel Electronics 10 | 1353.8
+ELE-0001 | Lite Router Electronics 1 | 1279.18
+ELE-0015 | Urban Shampoo Electronics 15 | 1176.13
+ELE-0008 | Basic Ball Electronics 8 | 805.59
