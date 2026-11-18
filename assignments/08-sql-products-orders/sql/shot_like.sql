@@ -1,0 +1,1 @@
+SELECT id, sku, name FROM products WHERE UPPER(name) LIKE 'ABC%';

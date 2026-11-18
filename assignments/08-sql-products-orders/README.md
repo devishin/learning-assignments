@@ -14,7 +14,7 @@
 │   ├── run_checks.py   — выгрузка результатов в screenshots/
 │   ├── sql_injection_demo.py — небезопасный SQL vs ?
 │   └── insert_products_explained.md
-├── screenshots/        — скрины DBeaver + *.txt выгрузки
+├── screenshots/        — PNG из DBeaver (реальные)
 └── products_orders.db  — готовая база (после seed)
 ```
 
@@ -40,7 +40,8 @@
 Самопроверка:
 
 ```powershell
-python code/run_checks.py
+python code/verify_queries.py
+python code/capture_dbeaver_cli_screenshots.py
 python code/sql_injection_demo.py
 ```
 

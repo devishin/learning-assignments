@@ -1,4 +1,0 @@
-sku | name
-----+-----
-ABC-001 | ABC Starter Kit
-ABC-002 | abc mini charger
