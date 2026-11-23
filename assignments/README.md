@@ -8,6 +8,7 @@
 - `08-sql-products-orders` — SQLite: products/orders, DML, JOIN, seed, SQL injection demo
 - `09-imdb-database` — Python `DatabaseManager`, IMDB CSV, поиск по жанру, CLI
 - `10-postgresql-users` — PostgreSQL: psycopg2, `.env`, `SELECT` из таблицы `users`
+- `11-http-requests-api` — HTTP: requests, GET/POST, restcountries, colorama
 
 ## Клонирование
 
