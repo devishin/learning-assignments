@@ -7,6 +7,7 @@
 - `07-sports-club` — SQLite: спортивный клуб (схема, seed, checks, ER)
 - `08-sql-products-orders` — SQLite: products/orders, DML, JOIN, seed, SQL injection demo
 - `09-imdb-database` — Python `DatabaseManager`, IMDB CSV, поиск по жанру, CLI
+- `10-postgresql-users` — PostgreSQL: psycopg2, `.env`, `SELECT` из таблицы `users`
 
 ## Клонирование
 
