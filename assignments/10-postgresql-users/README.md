@@ -43,9 +43,6 @@ python main.py
 | `.env.example` | Шаблон без секретов |
 | `README.md` | Команды запуска |
 
-Ссылка на репозиторий:  
-https://github.com/devishin/learning-assignments/tree/main/assignments/10-postgresql-users
-
 ## Критерии зачёта
 
 - `python main.py` без правок кода после настройки `.env` и данных в БД;
