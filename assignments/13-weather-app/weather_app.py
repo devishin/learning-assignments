@@ -18,7 +18,8 @@ CACHE_PATH = "weather_cache.json"
 CACHE_TTL_SECONDS = 3 * 60 * 60
 RETRY_DELAYS = (1, 2, 4)
 
-load_dotenv()
+_ENV_PATH = Path(__file__).resolve().parent / ".env"
+load_dotenv(_ENV_PATH)
 API_KEY = os.getenv("API_KEY")
 
 
@@ -38,7 +39,11 @@ def _require_api_key() -> str:
 
 def _http_status_message(status: int) -> str:
     if status == 401:
-        return "Неверный API-ключ (401). Проверьте API_KEY в .env."
+        return (
+            "Неверный или ещё не активирован API-ключ (401). "
+            "Проверьте ключ в кабинете OpenWeather; новые ключи иногда "
+            "работают только через 10–120 минут после создания."
+        )
     if status == 404:
         return "Данные не найдены (404)."
     if status == 429:

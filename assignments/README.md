@@ -11,6 +11,7 @@
 - `11-http-requests-api` — HTTP: requests, GET/POST, restcountries, colorama
 - `12-currency-rates` — open.er-api.com, кэш JSON, конвертер валют
 - `13-weather-app` — OpenWeather: геокодинг, погода, `.env`, кэш, ретраи
+- `14-booking-postgres` — бронирование: драйвер Postgres, модели, CRUD, Tkinter
 
 ## Клонирование
 
