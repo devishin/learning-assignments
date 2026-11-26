@@ -2,25 +2,24 @@
 
 Драйвер `postgres_driver.py`, модели в `models/`, CRUD в `backend.py`, GUI в `app.py`.
 
-## PostgreSQL и пользователь admin
-
-1. Создайте БД **`booking`** в pgAdmin (или psql).
-2. Создайте пользователя **`admin`** с паролем и правами на эту БД (или используйте `postgres` — тогда поменяйте `DB_USER` в `.env`).
-
-Пример в psql под суперпользователем:
-
-```sql
-CREATE USER admin WITH PASSWORD 'your_password';
-CREATE DATABASE booking OWNER admin;
-```
-
-## Проект
+## База PostgreSQL (Docker)
 
 ```powershell
 cd assignments/14-booking-postgres
 copy .env.example .env
-# DB_HOST, DB_PORT, DB_NAME=booking, DB_USER=admin, DB_PASSWORD=...
+docker compose up -d
+```
 
+По умолчанию: **Postgres** на `localhost:5433`, БД `booking`, пользователь `admin`.  
+Пароль в `.env` (см. `.env.example`; для Docker совпадает с `docker-compose.yml`).
+
+Опционально: **pgAdmin** в браузере — http://127.0.0.1:5051 (`admin@local.dev` / `pgadmin`).
+
+Локальный **pgAdmin 4** (установщик): подключение `localhost:5433`, см. `scripts/pgpass` / `pgpass.conf`.
+
+## Проект Python
+
+```powershell
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt

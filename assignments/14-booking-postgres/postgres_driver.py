@@ -55,10 +55,11 @@ class PostgresDriver:
         with self._conn.cursor(cursor_factory=RealDictCursor) as cur:
             cur.execute(sql, params)
             if fetch:
-                rows = cur.fetchall()
-                return [dict(row) for row in rows]
+                rows = [dict(row) for row in cur.fetchall()]
+            else:
+                rows = None
             self._conn.commit()
-            return None
+            return rows
 
     def executemany(self, sql: str, seq: list[tuple]) -> None:
         self.connect()

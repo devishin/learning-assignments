@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: booking-postgres-dev
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: BookingDev2026!
+      POSTGRES_DB: booking
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d booking"]
+      interval: 3s
+      timeout: 5s
+      retries: 10
+
+  pgadmin:
+    image: dpage/pgadmin4:9
+    container_name: booking-pgadmin-dev
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@local.dev
+      PGADMIN_DEFAULT_PASSWORD: pgadmin
+      PGADMIN_CONFIG_SERVER_MODE: "True"
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
+    ports:
+      - "5051:80"
+    volumes:
+      - ./scripts/pgadmin_docker_servers.json:/pgadmin4/servers.json
+      - ./scripts/pgpass:/pgpass:ro
+    depends_on:
+      db:
+        condition: service_healthy

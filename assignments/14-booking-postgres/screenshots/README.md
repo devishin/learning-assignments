@@ -1,9 +1,16 @@
-# Скриншоты для сдачи (делаете сами, не AI)
+# Скриншоты для сдачи
 
-Сохраните в этой папке **три реальных** PNG:
+| Файл | Содержание |
+|------|------------|
+| `01_pgadmin_tables.png` | Таблицы и данные в PostgreSQL (`\dt`, выборка users/tables/bookings) |
+| `02_bookings_list.png` | `python main.py bookings` |
+| `03_gui_or_cli.png` | Tkinter `app.py`, вкладка «Пользователи» |
 
-1. **01_pgadmin_tables.png** — в pgAdmin видны таблицы `users`, `tables`, `bookings` и данные (≥3 / ≥3 / ≥2 строки).
-2. **02_bookings_list.png** — список бронирований (`python main.py bookings` или вкладка «Бронирования» в GUI).
-3. **03_gui_or_cli.png** — окно `app.py` или успешная проверка в консоли.
+Переснять при необходимости:
 
-Не коммитьте `.env`. Секреты только в локальном `.env`.
+```powershell
+docker compose up -d
+python main.py seed
+python scripts\capture_screenshots.py
+powershell -File scripts\show_tables.ps1
+```

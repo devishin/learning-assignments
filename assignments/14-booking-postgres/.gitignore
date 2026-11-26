@@ -1,6 +1,10 @@
 .env
+pgdata/
+scripts/pgpass
+.pgpass_init
+screenshots/_debug_*.png
+screenshots/_tmp_*.png
+pg.log
 venv/
 __pycache__/
 *.pyc
-screenshots/*.png
-!screenshots/README.md

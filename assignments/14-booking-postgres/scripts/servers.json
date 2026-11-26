@@ -1,0 +1,13 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "booking-docker",
+      "Group": "Servers",
+      "Host": "localhost",
+      "Port": 5433,
+      "MaintenanceDB": "booking",
+      "Username": "admin",
+      "SSLMode": "prefer"
+    }
+  }
+}
