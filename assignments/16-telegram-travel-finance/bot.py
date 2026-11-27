@@ -7,14 +7,13 @@ import logging
 import re
 
 from aiogram import Bot, Dispatcher, F
-from aiogram.client.session.aiohttp import AiohttpSession
 from aiogram.filters import Command, CommandObject, StateFilter
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.types import BotCommand, ErrorEvent, Message
 
-from config import BOT_TOKEN, DB_PATH, TELEGRAM_PROXY, check_token
+from config import BOT_TOKEN, DB_PATH, check_token
 from countries import CountryError, resolve_country
 from currency_api import CurrencyApiError, convert_amount, from_per_to_rate
 from database import (
@@ -285,8 +284,6 @@ async def plain_expense(message: Message) -> None:
 
 
 def create_bot() -> Bot:
-    if TELEGRAM_PROXY:
-        return Bot(token=BOT_TOKEN, session=AiohttpSession(proxy=TELEGRAM_PROXY))
     return Bot(token=BOT_TOKEN)
 
 

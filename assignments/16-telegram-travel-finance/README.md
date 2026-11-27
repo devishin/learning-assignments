@@ -27,13 +27,13 @@
 ```powershell
 cd assignments/16-telegram-travel-finance
 copy .env.example .env
+# или: copy telegram.env.example .env  — заготовка с полями BOT_TOKEN и FINANCE_DB_PATH
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-В `.env` — `BOT_TOKEN` от [@BotFather](https://t.me/BotFather).  
-При блокировке API Telegram укажите `TELEGRAM_PROXY` (как в задании 06).
+В `.env` укажите `BOT_TOKEN` от [@BotFather](https://t.me/BotFather). Секреты в репозиторий не попадают.
 
 ## Проверка
 

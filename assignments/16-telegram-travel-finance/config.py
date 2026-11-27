@@ -15,18 +15,6 @@ DB_PATH = str(
 )
 
 
-def _normalize_telegram_proxy(raw: str | None) -> str | None:
-    url = (raw or "").strip()
-    if not url:
-        return None
-    if url.startswith("socks5h://"):
-        return "socks5://" + url[len("socks5h://") :]
-    return url
-
-
-TELEGRAM_PROXY = _normalize_telegram_proxy(os.getenv("TELEGRAM_PROXY"))
-
-
 def check_token() -> None:
     if not BOT_TOKEN:
         raise SystemExit("Задайте BOT_TOKEN в .env (токен от @BotFather).")
