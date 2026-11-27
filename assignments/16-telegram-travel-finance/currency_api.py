@@ -1,23 +1,37 @@
-"""Конвертация валют через open.er-api.com (отдельный модуль API)."""
+"""Конвертация валют через api.exchangerate.host (отдельный модуль API)."""
 
 from __future__ import annotations
 
-import requests
+import os
+from pathlib import Path
+from typing import Any
 
-API_URL = "https://open.er-api.com/v6/latest/{base}"
+import requests
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).resolve().parent / ".env")
+
+API_BASE = "https://api.exchangerate.host"
 
 
 class CurrencyApiError(Exception):
     """Ошибка при запросе курсов."""
 
 
-def get_rates(base_currency: str) -> dict:
-    code = base_currency.strip().upper()
-    if not code:
-        raise CurrencyApiError("Не указана базовая валюта.")
-    url = API_URL.format(base=code)
+def _access_key() -> str:
+    key = (os.getenv("EXCHANGERATE_ACCESS_KEY") or os.getenv("ACCESS_KEY") or "").strip()
+    if not key:
+        raise CurrencyApiError(
+            "Не задан EXCHANGERATE_ACCESS_KEY в .env (бесплатный ключ: exchangerate.host)"
+        )
+    return key
+
+
+def _get(path: str, **params: Any) -> dict:
+    params = {**params, "access_key": _access_key()}
+    url = f"{API_BASE}/{path.lstrip('/')}"
     try:
-        response = requests.get(url, timeout=30)
+        response = requests.get(url, params=params, timeout=30)
     except requests.RequestException as exc:
         raise CurrencyApiError(f"Сеть недоступна: {exc}") from exc
     if response.status_code != 200:
@@ -26,19 +40,52 @@ def get_rates(base_currency: str) -> dict:
         data = response.json()
     except ValueError as exc:
         raise CurrencyApiError("Ответ не JSON") from exc
-    if data.get("result") != "success":
-        raise CurrencyApiError(data.get("error-type", "unknown"))
+    if not data.get("success"):
+        err = data.get("error") or {}
+        if isinstance(err, dict):
+            msg = err.get("info") or err.get("type") or "ошибка API"
+        else:
+            msg = str(err)
+        raise CurrencyApiError(f"exchangerate.host: {msg}")
     return data
 
 
+def convert(from_ccy: str, to_ccy: str, amount: float) -> dict:
+    """GET /convert?from=&to=&amount= — ответ APILayer / exchangerate.host."""
+    base = from_ccy.strip().upper()
+    quote = to_ccy.strip().upper()
+    if not base or not quote:
+        raise CurrencyApiError("Укажите валюты")
+    if amount <= 0:
+        raise CurrencyApiError("Сумма должна быть > 0")
+    return _get(
+        "convert",
+        from=base,
+        to=quote,
+        amount=amount,
+    )
+
+
+def get_rates(base_currency: str) -> dict:
+    """
+    Курс из /live (для совместимости с тестами).
+    source = base, currencies = все основные — для конвертации используйте convert().
+    """
+    code = base_currency.strip().upper()
+    return _get("live", source=code)
+
+
 def quote_to_per_from(base: str, quote: str) -> float:
-    """Сколько quote-валюты за 1 единицу base (как в API rates[quote])."""
-    data = get_rates(base)
-    rates = data.get("rates") or {}
-    quote_u = quote.strip().upper()
-    if quote_u not in rates:
-        raise CurrencyApiError(f"Нет курса {quote_u} для базы {base.upper()}")
-    return float(rates[quote_u])
+    """Сколько quote-валюты за 1 единицу base (через /convert amount=1)."""
+    data = convert(base, quote, 1.0)
+    info = data.get("info") or {}
+    rate = info.get("rate")
+    if rate is not None:
+        return float(rate)
+    result = float(data.get("result", 0))
+    if result <= 0:
+        raise CurrencyApiError("Некорректный курс в ответе API")
+    return result
 
 
 def from_per_to_rate(base: str, quote: str) -> tuple[float, float]:

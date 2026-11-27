@@ -6,7 +6,7 @@
 
 1. `/newtrip` → страна выезда (Россия → RUB)  
 2. Страна назначения (Италия → EUR)  
-3. Курс из [open.er-api.com](https://open.er-api.com)  
+3. Курс из [exchangerate.host](https://exchangerate.host) (`api.exchangerate.host/convert`)  
 4. Начальная сумма (например `200000` RUB)  
 5. Бот создаёт поездку и показывает эквивалент в EUR  
 6. Расходы: `/spend 50` или просто число в чате (в валюте назначения)
@@ -33,7 +33,14 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
-В `.env` укажите `BOT_TOKEN` от [@BotFather](https://t.me/BotFather). Секреты в репозиторий не попадают.
+В `.env`:
+
+- `BOT_TOKEN` — [@BotFather](https://t.me/BotFather)
+- `EXCHANGERATE_ACCESS_KEY` — [exchangerate.host/signup](https://exchangerate.host/signup/free) (ключ для `access_key`)
+
+Секреты в репозиторий не попадают.
+
+Логика курса: `currency_api.py` вызывает `GET .../convert?from=RUB&to=EUR&amount=1`, из ответа берётся `info.rate` или `result`; сумма поездки пересчитывается через `amount` и сохраняется в SQLite.
 
 ## Проверка
 
