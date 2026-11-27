@@ -7,3 +7,5 @@ assignments/03-password-manager/passwords.db
 assignments/04-invoice-pdf/output/*.pdf
 assignments/06-telegram-tasks-bot/tasks.db
 assignments/06-telegram-tasks-bot/exports/
+assignments/16-telegram-travel-finance/travel_finance.db
+assignments/16-telegram-travel-finance/*.db

@@ -12,6 +12,8 @@
 - `12-currency-rates` — open.er-api.com, кэш JSON, конвертер валют
 - `13-weather-app` — OpenWeather: геокодинг, погода, `.env`, кэш, ретраи
 - `14-booking-postgres` — бронирование: драйвер Postgres, модели, CRUD, Tkinter
+- `15-vk-weather-bot` — VK + OpenWeather, vkbottle, Long Poll
+- `16-telegram-travel-finance` — Telegram: бюджет поездки, API валют, SQLite
 
 ## Клонирование
 
