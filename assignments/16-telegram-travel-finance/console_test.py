@@ -1,4 +1,4 @@
-"""Проверка курсов и логики бюджета без Telegram."""
+"""Локальный тест SQLite и логики бюджета."""
 
 from __future__ import annotations
 

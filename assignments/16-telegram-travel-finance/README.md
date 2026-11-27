@@ -1,33 +1,18 @@
 # Финансовый помощник (Telegram)
 
-Учебный бот: бюджет поездки, курсы **[exchangerate.host](https://exchangerate.host)**, SQLite.
+Telegram-бот для бюджета в поездке: **exchangerate.host**, SQLite.
 
-## Файлы по уроку
+## Структура
 
 | Файл | Назначение |
 |------|------------|
-| **`current_api.py`** | `get_current_rate()` → `/live`, `convert_currency()` → `/convert`, ключ из `.env` |
+| `current_api.py` | `get_current_rate()` — `/live`; `convert_currency()` — `/convert` |
 | `requirements.txt` | `requests`, `python-dotenv`, `aiogram` |
-| `bot.py` | Telegram, `/start`, `/newtrip` |
-| `database.py` | путешествия и расходы |
+| `bot.py` | `/start`, `/newtrip`, расходы и остаток |
+| `database.py` | путешествия и история расходов |
+| `countries.py` | страна → валюта |
 
-## API (current_api.py)
-
-- **Курсы:** `GET https://api.exchangerate.host/live` — `source`, `currencies`, `access_key`
-- **Конвертация:** `GET https://api.exchangerate.host/convert` — `from`, `to`, `amount`, `access_key`
-- Ключ в `.env`: **`CURRENCY_API_KEY`** (не в коде)
-
-Проверка модуля:
-
-```powershell
-python current_api.py
-```
-
-## Сценарий бота
-
-1. `/newtrip` → страна выезда → назначения → сумма в валюте выезда  
-2. Курс и бюджет в двух валютах, расходы в чате или `/spend`  
-3. `/balance`, `/history`, `/rate`, `/resetrate`
+Курсы и конвертация: `https://api.exchangerate.host` (`access_key`, `CURRENCY_API_KEY` в `.env`).
 
 ## Установка
 
@@ -39,13 +24,17 @@ pip install -r requirements.txt
 copy .env.example .env
 ```
 
-В `.env`: `BOT_TOKEN` (BotFather), `CURRENCY_API_KEY` (exchangerate.host).
+Заполните в `.env`: `BOT_TOKEN`, `CURRENCY_API_KEY`.
 
 ```powershell
+python current_api.py
 python console_test.py
-python check_telegram.py
 python bot.py
 ```
+
+## Команды бота
+
+`/newtrip` — новое путешествие; `/balance`, `/history`, `/spend`, `/rate`, `/resetrate`.
 
 ## Сдача
 
