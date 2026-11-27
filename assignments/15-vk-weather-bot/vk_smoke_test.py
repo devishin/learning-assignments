@@ -1,4 +1,4 @@
-"""Проверка VK_BOT_TOKEN и Long Poll без запуска бота."""
+"""Локальная проверка VK_BOT_TOKEN, messages API и OpenWeather."""
 
 from __future__ import annotations
 

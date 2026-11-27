@@ -40,7 +40,7 @@ python vk_live_test.py
 
 Минимум два города: **Moscow**, **Kazan** (или Москва / Казань).
 
-`vk_live_test` проверяет клавиатуру, OpenWeather и **VK messages API** с локальным `VK_BOT_TOKEN` (см. [VK_BOTS.md](VK_BOTS.md) про Long Poll).
+`vk_live_test` — клавиатура, OpenWeather и VK messages API.
 
 ## Запуск бота
 
@@ -54,6 +54,6 @@ python bot.py
 
 - Репозиторий `learning-assignments`, папка `15-vk-weather-bot`
 - `.env` в `.gitignore`, в репо только `.env.example`
-- См. список ваших VK-ботов: [VK_BOTS.md](VK_BOTS.md)
+- Настройка сообщества: [VK_BOTS.md](VK_BOTS.md)
 
 Документация vkbottle: https://vkbottle.readthedocs.io/ru/v4.x/
