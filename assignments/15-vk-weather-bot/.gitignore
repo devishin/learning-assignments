@@ -1,0 +1,8 @@
+.env
+venv/
+__pycache__/
+*.pyc
+user_cities.json
+bot_run.log
+bot_run_err.log
+.venv/
