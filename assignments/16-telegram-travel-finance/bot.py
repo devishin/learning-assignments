@@ -15,7 +15,7 @@ from aiogram.types import BotCommand, ErrorEvent, Message
 
 from config import BOT_TOKEN, DB_PATH, check_token
 from countries import CountryError, resolve_country
-from currency_api import CurrencyApiError, convert_amount, from_per_to_rate
+from current_api import CurrencyApiError, convert_amount, from_per_to_rate
 from database import (
     add_expense,
     clear_rate_override,

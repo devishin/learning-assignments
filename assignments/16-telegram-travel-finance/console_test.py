@@ -6,7 +6,7 @@ import tempfile
 from pathlib import Path
 
 from countries import resolve_country
-from currency_api import convert_amount, from_per_to_rate
+from current_api import convert_amount, from_per_to_rate
 from database import (
     add_expense,
     create_trip,
